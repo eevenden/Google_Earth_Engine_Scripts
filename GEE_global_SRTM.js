@@ -12,5 +12,5 @@ Export.image.toDrive({
   image:srtm,
   description: "SRTM",
   region: geometry,
-  scale: 300
-  
+  scale: 30,
+  maxPixels: 1e13
