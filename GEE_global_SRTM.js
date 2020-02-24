@@ -1,16 +1,18 @@
-#Change extent to include entire globe
-var geometry = ee.Geometry.Rectangle([180, 90, -180, 90])
+#Create rectangle to select entire globe
+var geometry = ee.Geometry.Rectangle([-179.99, -90, 180, 90])
 
-#Locate the SRTM dataset within GEE
+#Create variable for SRTM data
 var srtm = ee.Image("CGIAR/SRTM90_V4")
 
-#Display data
+#Display SRTM data
 Map.addLayer(srtm)
 
-#Export data at a 300m scale
+#Export entire SRTM dataset
 Export.image.toDrive({
   image:srtm,
   description: "SRTM",
   region: geometry,
   scale: 30,
-  maxPixels: 1e13
+  maxPixels: 1e12
+  
+})
